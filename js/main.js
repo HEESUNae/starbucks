@@ -3,24 +3,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-//헤더 통합검색
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
-
-searchEl.addEventListener('click', function(){
-    searchInputEl.focus();
-});
-
-searchInputEl.addEventListener('focus', function(){
-    searchEl.classList.add('focused');
-    searchInputEl.setAttribute('placeholder','통합검색');
-});
-
-searchInputEl.addEventListener('blur', function(){
-    searchEl.classList.remove('focused');
-    searchInputEl.setAttribute('placeholder','');
-});
-
 //사이드 뱃지 & 스크롤 최상단으로 이동
 const bedgeEl = document.querySelector('header .bedges');
 const toTopEl = document.querySelector('#to-top');
@@ -144,7 +126,3 @@ spyEls.forEach(function(spyEl){
         .setClassToggle(spyEl, 'show')
         .addTo(new ScrollMagic.Controller());
 });
-
-//현재 년도 구하기
-const thisYear = document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear();
